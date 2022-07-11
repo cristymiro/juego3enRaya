@@ -1,5 +1,7 @@
 
 let turno = 0;
+let jugador1 = '';
+let jugador2 = '';
 const tablero = [];
 
 
@@ -9,7 +11,7 @@ const btnPulsado = (e, pos) =>{
     const color = turno % 2 ? 'pink' : 'grey';
     btn.style.backgroundColor = color;
     tablero[pos] = color;
-    if(Ganar())alert('Felicidades, has ganado ' + color);
+    if(Ganar())alert('Felicidades, has ganado ' + color === "pink" ? jugardor1 : jugador2);
 }
 
 
@@ -40,11 +42,17 @@ const Ganar = () =>{
 document.querySelectorAll('button').forEach((obj,i) => obj.addEventListener('click',(e)=> btnPulsado(e,i)));
 
 function captura(){
-    let nombreJugador1 = document.getElementById("nombre").value;
-    alert(nombreJugador1 + ' Serás el primero en jugar con el color rosa');
-}
+    const form = document.getElementsByTagName("form")[0];
+    const inputs = form.getElementsByTagName("input");
 
-function captura2(){
-    let nombreJugador2 = document.getElementById("nombre2").value;
-    alert(nombreJugador2 + ' Serás el segundo en jugar con el color gris');
+    Array.from(inputs).forEach((input, index) => {
+        console.log("Input", input, "and index", index);
+
+        if(index === 0) {
+            jugador1 = input.value
+        }
+        jugador2 = input.value; // check line 3 and 4
+
+        alert(`Preparados: ${jugador1} y ${jugador2} -> ${jugador1} Serás el primero en jugar con el color rosa`);
+    });
 }
