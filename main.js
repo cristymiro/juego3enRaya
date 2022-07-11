@@ -48,7 +48,10 @@ function captura(){
     Array.from(inputs).forEach((input, index) => {
         console.log("Input", input, "and index", index);
 
-        jugador[index] = input.value; // check line 3 and 4
+        if(index === 0) {
+            jugador1 = input.value
+        }
+        jugador2 = input.value; // check line 3 and 4
 
         alert(`Preparados: ${jugador1} y ${jugador2} -> ${jugador1} Serás el primero en jugar con el color rosa`);
     });
