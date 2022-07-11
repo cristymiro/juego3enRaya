@@ -12,6 +12,8 @@ const btnPulsado = (e, pos) =>{
     if(Ganar())alert('Felicidades, has ganado ' + color);
 }
 
+
+
 const Ganar = () =>{
     if(tablero[0] == tablero[1] && tablero[0] == tablero[2] && tablero[0]){
         return true;
@@ -36,3 +38,13 @@ const Ganar = () =>{
 
 
 document.querySelectorAll('button').forEach((obj,i) => obj.addEventListener('click',(e)=> btnPulsado(e,i)));
+
+function captura(){
+    let nombreJugador1 = document.getElementById("nombre").value;
+    alert(nombreJugador1 + ' Serás el primero en jugar con el color rosa');
+}
+
+function captura2(){
+    let nombreJugador2 = document.getElementById("nombre2").value;
+    alert(nombreJugador2 + ' Serás el segundo en jugar con el color gris');
+}
